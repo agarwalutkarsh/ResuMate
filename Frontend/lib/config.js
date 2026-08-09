@@ -1,7 +1,7 @@
 export const OWNER_NAME = "Utkarsh";
 
 export const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://resumate-gisz.onrender.com";
+  process.env.NEXT_PUBLIC_BASE_URL ;
 
 export const SUGGESTED_QUESTIONS = [
   {

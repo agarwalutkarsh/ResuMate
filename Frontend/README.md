@@ -18,7 +18,7 @@ Open http://localhost:3000
 `.env` holds the backend URL:
 
 ```
-NEXT_PUBLIC_BASE_URL=https://resumate-gisz.onrender.com
+NEXT_PUBLIC_BASE_URL=https://resumate-baseurl.com
 ```
 
 Point this at `http://127.0.0.1:8000` while developing against a local FastAPI server. Any variable read in the browser must keep the `NEXT_PUBLIC_` prefix.
