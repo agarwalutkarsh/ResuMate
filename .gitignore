@@ -3,25 +3,38 @@
 .env.*
 !.env.example
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
+# Python / Backend
+Backend/__pycache__/
+Backend/*.py[cod]
+Backend/*$py.class
+Backend/.pytest_cache/
+Backend/.mypy_cache/
+Backend/.ruff_cache/
+Backend/.coverage
+Backend/htmlcov/
+Backend/.venv/
+Backend/venv/
+Backend/env/
+Backend/build/
+Backend/dist/
+Backend/*.egg-info/
+Backend/.python-version
 
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Build artifacts
-build/
-dist/
-*.egg-info/
+# Frontend / Node
+Frontend/node_modules/
+Frontend/.next/
+Frontend/out/
+Frontend/build/
+Frontend/dist/
+Frontend/.vercel/
+Frontend/.env.local
+Frontend/.env*.local
+Frontend/*.log
+Frontend/npm-debug.log*
+Frontend/yarn-debug.log*
+Frontend/yarn-error.log*
+Frontend/pnpm-debug.log*
+Frontend/next-env.d.ts
 
 # Local/editor files
 .vscode/
