@@ -10,7 +10,7 @@ Point it at a resume PDF and it becomes a conversational stand-in for the candid
   <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss&logoColor=white" />
   <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.141-009688?logo=fastapi&logoColor=white" />
   <img alt="Python" src="https://img.shields.io/badge/Python-3.15-3776AB?logo=python&logoColor=white" />
-  <img alt="Groq" src="https://img.shields.io/badge/Groq-Llama%203.3%2070B-F55036" />
+  <img alt="Groq" src="https://img.shields.io/badge/Openai-Gpt%20ss%20120b-F55036" />
 </p>
 
 ---
@@ -48,8 +48,8 @@ The resume is parsed once at server startup and injected into the system prompt.
                         ▼                                                  ▼
              ┌────────────────────┐                          ┌──────────────────────┐
              │  pdf_parser.py     │  resume text at startup  │   llm_service.py     │
-             │  pypdf → plain     │ ───────────────────────► │   Groq · Llama 3.3   │
-             │  text              │                          │   70B Versatile      │
+             │  pypdf → plain     │ ───────────────────────► │   Groq · OpenAI      │
+             │  text              │                          │   GPT-OSS 120B       │
              └────────────────────┘                          └──────────────────────┘
 ```
 
@@ -58,7 +58,7 @@ The resume is parsed once at server startup and injected into the system prompt.
 1. Recruiter types a question (or clicks one of three suggested prompts).
 2. Frontend `POST`s `{ "message": "..." }` to `/chat`; the send button and input lock until the reply lands.
 3. FastAPI appends the message to the conversation history, which already begins with a system prompt containing the full resume text.
-4. Groq runs the history through Llama 3.3 70B Versatile.
+4. Groq runs the history through OpenAI GPT OSS 120B.
 5. The reply is appended to history and returned as `{ "reply": "..." }`.
 
 The system prompt does the guardrail work: answer as the candidate, never fabricate, decline anything off-topic, and say "that information isn't in the resume" when the document is silent.
@@ -73,7 +73,7 @@ The system prompt does the guardrail work: answer as the candidate, never fabric
 | Styling | Tailwind CSS 3.4 | Utility-first, no separate stylesheet to maintain |
 | Backend | FastAPI + Uvicorn | Typed request/response models via Pydantic, minimal boilerplate |
 | PDF parsing | pypdf | Straightforward text extraction from the resume |
-| Inference | Groq API — `llama-3.3-70b-versatile` | Very low latency, generous free tier, strong instruction following |
+| Inference | Groq API — `OpenAI GPT OSS 120B` | Very low latency, generous free tier, strong instruction following |
 | Package management | uv (backend), npm (frontend) | `uv.lock` pins the Python tree reproducibly |
 
 ---
@@ -262,7 +262,7 @@ Worth knowing before this goes in front of real recruiters:
 **Phase 1 — Resume only** ✅
 
 - [x] PDF parsing and system-prompt injection
-- [x] Groq + Llama 3.3 70B chat endpoint
+- [x] Groq + OpenAI GPT OSS 120B chat endpoint
 - [x] Recruiter-facing chat UI with suggested questions
 - [x] Conversation reset
 
